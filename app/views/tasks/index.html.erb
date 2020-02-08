@@ -1,0 +1,15 @@
+<h1>This is TASK LIST!!</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+  
+  <li>
+    <%= link_to task.id, task_path(task.id) %> : <%= task.content %>
+  </li>
+    
+  <% end %>
+  
+</ul>
+
+<%= link_to 'New Task Registration', new_task_path %>
+
