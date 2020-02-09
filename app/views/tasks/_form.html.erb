@@ -1,0 +1,6 @@
+<%= form_with(model: task, local: true) do |f| %>
+  <%= f.label :content, 'Task Detail' %>
+  <%= f.text_field :content %>
+  
+  <%= f.submit 'Upp' %>
+<% end %>
