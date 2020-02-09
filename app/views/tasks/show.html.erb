@@ -3,6 +3,7 @@
 <p>Registered Date : <%= @task.created_at.strftime('%Y/%m/%d') %></p>
 <p><%= time_ago_in_words(@task.created_at) %> before</p>
 <p><%= @task.content %></p>
+<p><%= @task.status %></p>
 
 <%= link_to 'Back to the List', tasks_path %>
 <%= link_to 'Edit your Task', edit_task_path(@task.id) %>
