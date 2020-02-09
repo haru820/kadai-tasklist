@@ -1,0 +1,19 @@
+<header class="mb-4">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <!--ロゴとかを置くNavbar-brand-->
+    <a class="navbar-brand" href="/">Task List</a>
+    
+    <!--Humberger button-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!--Menu-->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="navbar-item"><%= link_to 'New Task', new_task_path, class: 'nav-link' %></li>
+      </ul>
+    </div>
+    
+  </nav>
+</header>

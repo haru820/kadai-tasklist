@@ -1,13 +1,29 @@
 <h1>Id : <%= @task.id %> Detail Page</h1>
 
-<p>Registered Date : <%= @task.created_at.strftime('%Y/%m/%d') %></p>
-<p><%= time_ago_in_words(@task.created_at) %> before</p>
-<p><%= @task.content %></p>
-<p><%= @task.status %></p>
 
-<%= link_to 'Back to the List', tasks_path %>
-<%= link_to 'Edit your Task', edit_task_path(@task.id) %>
-<%= link_to 'Delete this task', @task, method: :delete, data: { confirm: 'Are you sure to delete?' } %>
+
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>id</th>
+    <td><%= @task.id %></td>
+  </tr>
+  <tr>
+    <th>Task</th>
+    <td><%= @task.content %></td>
+  </tr>
+  <tr>
+    <th>status</th>
+    <td><%= @task.status %></td>
+  </tr>
+  <tr>
+    <th>Registered at</th>
+    <td><%= @task.created_at.strftime('%Y/%m/%d') %><br><%= time_ago_in_words(@task.created_at) %> before</td>
+  </tr>
+</table>
+
+
+<%= link_to 'Edit your Task', edit_task_path(@task.id), class: 'btn btn-dark' %>
+<%= link_to 'Delete this task', @task, method: :delete, data: { confirm: 'Are you sure to delete?' }, class: 'btn btn-danger' %>
 
 
 
