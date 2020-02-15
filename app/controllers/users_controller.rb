@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show]
   
-  def show
-    set_user
-  end
-
   def new
     @user = User.new
   end

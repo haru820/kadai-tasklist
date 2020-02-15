@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   #before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
-  include SessionsHelper
+  #include SessionsHelper
   
   def index
     #if logged_in?
