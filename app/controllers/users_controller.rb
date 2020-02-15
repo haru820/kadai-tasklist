@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       flash[:success] = 'Signed Up!!'
       #セッション構築
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to root_url
     else
       flash.now[:danger] = 'Failed,,,,'
       render :new

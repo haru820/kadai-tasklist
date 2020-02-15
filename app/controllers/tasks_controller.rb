@@ -1,17 +1,17 @@
 class TasksController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :new, :edit,]
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :require_user_logged_in #全てのアクションでログイン必須！, only: [:show, :new, :edit]
+  #correct_Userがあり@taskの二重定義になっているため不要
+  #before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
   include SessionsHelper
   
   def index
-    if logged_in?
+    #if logged_in?
       @tasks = current_user.tasks.order(id: :desc).page(params[:page]).per(10)
     #else
-      #課題はこちら
       #redirect_to login_url
-    end
+    #end
   end
 
   def show
@@ -58,10 +58,10 @@ class TasksController < ApplicationController
   
   private
   
-  
-  def set_task
-    @task = Task.find(params[:id])
-  end
+  #correct_Userがあり@taskの二重定義になっているため不要
+  #def set_task
+  #  @task = Task.find(params[:id])
+  #end
   
   #Current_User Only
   def correct_user

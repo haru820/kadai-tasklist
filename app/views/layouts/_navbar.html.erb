@@ -13,14 +13,17 @@
       <ul class="navbar-nav">
         <% if logged_in? %>
           <li class="navbar-item"><%= link_to 'New Task', new_task_path, class: 'nav-link' %></li>
-          <ll class="nav-item dropdown">
+          <!--課題のため削除
+          <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
+              <li class="dropdown-item"></li>
               <li class="dropdown-diviber"></li>
-              <li class="dropdown-item"><%= link_to 'Log Out', logout_path, method: :delete %></li>
+              <li class="dropdown-item"></li>
             </ul>
-          </ll>
+          </li>
+          -->
+          <li class="navbar-item"><%= link_to 'Log Out', logout_path, method: :delete, class: 'nav-link' %></li>
         <% else %>
           <li class="navbar-item"><%= link_to 'Sign Up', signup_path, class: 'nav-link' %></li>
           <li class="navbar-item"><%= link_to 'Log In', login_path, class: 'nav-link' %></li>
