@@ -7,11 +7,7 @@ class TasksController < ApplicationController
   #include SessionsHelper
   
   def index
-    #if logged_in?
       @tasks = current_user.tasks.order(id: :desc).page(params[:page]).per(10)
-    #else
-      #redirect_to login_url
-    #end
   end
 
   def show
