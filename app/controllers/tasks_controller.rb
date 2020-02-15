@@ -1,8 +1,17 @@
 class TasksController < ApplicationController
+  before_action :require_user_logged_in, only: [:show, :new, :edit,]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  
+  include SessionsHelper
   
   def index
-    @tasks = Task.order(id: :desc).page(params[:page]).per(10)
+    if logged_in?
+      @tasks = current_user.tasks.order(id: :desc).page(params[:page]).per(10)
+    #else
+      #課題はこちら
+      #redirect_to login_url
+    end
   end
 
   def show
@@ -13,7 +22,7 @@ class TasksController < ApplicationController
   end
   
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     
     if @task.save
       flash[:success] = 'Registered New Task!!'
@@ -52,6 +61,14 @@ class TasksController < ApplicationController
   
   def set_task
     @task = Task.find(params[:id])
+  end
+  
+  #Current_User Only
+  def correct_user
+    @task = current_user.tasks.find_by(id: params[:id])
+    unless @task
+      redirect_to root_url
+    end
   end
   
   #strong parameter

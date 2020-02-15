@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: [:index, :show]
+  
   def show
     set_user
   end
@@ -12,6 +14,8 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:success] = 'Signed Up!!'
+      #セッション構築
+      session[:user_id] = @user.id
       redirect_to @user
     else
       flash.now[:danger] = 'Failed,,,,'
